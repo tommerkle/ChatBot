@@ -24,11 +24,14 @@ public class Message {
         initQtypes(s);
         POS_table = toHashTable(s);
 
-
     }
 
     private void initPOS_table(String s) {
-
+        String tagged = POS_Tagger.tag(s);
+        System.out.println("tagged: " + tagged);
+        POS_table = POS_Tagger.makeTable(tagged);
+        System.out.println("after makeTable():");
+        Global.printHashTable(POS_table);
     }
 
     private void initQtypes(String s) {
@@ -38,5 +41,10 @@ public class Message {
 
     private Hashtable<String, String> toHashTable(String s) {
         return null;
+    }
+
+    @Override
+    public String toString() {
+        return "I am a Message...";
     }
 }

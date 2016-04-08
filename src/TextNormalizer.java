@@ -1,7 +1,7 @@
 /**
  * Created by Tom on 4/8/16.
  *
- * A TextNormalizer is meant to take in an input string and do two things:
+ * A TextNormalizer is meant to take in an input string and then:
  *          1. Fix spelling mistakes in input
  *          2. Expand any contractions
  *          3. More?

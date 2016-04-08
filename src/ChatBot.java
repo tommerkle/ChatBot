@@ -19,12 +19,14 @@ public class ChatBot {
 
 
             //Normalize input
-            input = TextNormalizer.normalize(input);
+           // input = TextNormalizer.normalize(input);
 
 
 
             // New message object for Brain
             Message resolvedInput = new Message(input);
+
+
 
             String botResponse = botBrain.respond(resolvedInput);
 
