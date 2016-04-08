@@ -9,17 +9,18 @@ import java.util.StringTokenizer;
  */
 public class POS_Tagger {
 
-    static MaxentTagger tagger = new MaxentTagger("taggers/english-bidirectional-distsim.tagger"); // new tagger using bidirectional distsim
+    // new tagger using bidirectional architecture
+    public static MaxentTagger tagger = new MaxentTagger("taggers/english-bidirectional-distsim.tagger");
 
-    static Hashtable <String,String> makeTable(String s) {
-
+    public static Hashtable <String,String> makeTable(String s) {
         Hashtable<String, String> POS_table = new Hashtable<String, String>();
-        //split input by spaces
-        String[] splitBySpace = s.split(" ");
-        //Iterate over splitBySpace and split again by underscore
-        for (String uScored : splitBySpace) {
-            String[] splitByUScore = uScored.split("_");
-           POS_table.put(splitByUScore[0], splitByUScore[1]);
+        //split input by spaces and underscores
+        String[] splitUp = s.split("\\s|_");
+
+        //iterate over splitUp, there will always be an even number of elements
+        // since each element gets paired with a POS we can increment by twos
+        for (int i =0; i <splitUp.length-1;i+=2) {
+           POS_table.put(splitUp[i], splitUp[i+1]);
         }
         return POS_table;
     }
