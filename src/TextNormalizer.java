@@ -11,7 +11,7 @@ public class TextNormalizer {
 
 
     public static String normalize(String input) {
-        return input; //fixSpelling(expandContractions(input));
+        return fixSpelling(expandContractions(input));
 
     }
 

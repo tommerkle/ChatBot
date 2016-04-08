@@ -7,18 +7,19 @@ import java.util.Hashtable;
  */
 public class Message {
 
-    public String rawInput;
+    public String rawInput; //Store raw input for future use
 
     public boolean isQuestion;
-    public String qType;
+    public String qType; //question type
 
 
-    public Hashtable<String,String> POS_table;
-    public Hashtable<String ,String> WBP_table;
+    public Hashtable<String, String> POS_table; //Part of Speech table - <word,POS>
+    public Hashtable<String, String> WBP_table; //Words by Part table - <POS,words>.
+                                                // Limited to nouns, verbs, pronouns, adjectives and adverbas
 
-    static int SENTIMENT;
+    public int sentiment; //sentiment of the message : positive (1), negative (-1), or neutral (0)
 
-    public Message(String s){
+    public Message(String s) {
         initPOS_table(s);
         initQtypes(s);
         POS_table = toHashTable(s);
@@ -30,12 +31,12 @@ public class Message {
 
     }
 
-    private void initQtypes(String s){
+    private void initQtypes(String s) {
         /*NOT DONE*/
     }
 
 
-    private Hashtable<String,String> toHashTable(String s) {
+    private Hashtable<String, String> toHashTable(String s) {
         return null;
     }
 }
